@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package forum.test;
+package forum.dao;
 
 import forum.service.SujetService;
 import forum.service.UtilisateurService;
@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:/C:\\Users\\admin\\Documents\\NetBeansProjects\\forum\\Forum\\test\\newSpringXMLConfig.xml")
+@ContextConfiguration("file:/C:\\Users\\admin\\Documents\\NetBeansProjects\\forum\\Forum\\springXMLConfigForumNew.xml")
 public class TestInterface {
     
     @Autowired
