@@ -10,4 +10,5 @@
 
     <context:component-scan base-package="forum.dao"/>
     <context:component-scan base-package="forum.service"/>
+    
 </beans>
