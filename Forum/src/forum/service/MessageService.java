@@ -5,36 +5,22 @@
  */
 package forum.service;
 
-import java.util.List;
-import forum.dao.MessageDAO;
 import forum.entity.Message;
+import java.util.List;
 
 /**
  *
  * @author admin
  */
-public class MessageService {
+public interface MessageService {
     
-    private MessageDAO dao= new MessageDAO();
+    public void ajouter(Message m);
     
+    public void modifier(Message m);
     
-    public void ajouter(Message m){
-        dao.ajouter(m);
-    }
+    public void supprimer(Message m);
     
-    public void modifier(Message m){
-        dao.modifier(m);
-    }
+    public Message rechercherParId(long id);
     
-    public void supprimer(Message m){
-        dao.supprimer(m);
-    }
-    
-    public Message rechercherParId(long id){
-        return dao.rechercherParId(id);
-    }
-    
-    public List<Message> listerTous(){
-        return dao.listerTous();
-    }
+    public List<Message> listerTous();
 }
