@@ -14,39 +14,14 @@ import javax.persistence.Persistence;
  *
  * @author admin
  */
-public class ForumDAO {
+public interface ForumDAO {
+    public void ajouter(Forum f);
     
-    public void ajouter(Forum f){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        em.getTransaction().begin();
-        em.persist(f);
-        em.getTransaction().commit();
-        
-    }
+    public void modifier(Forum f);
     
-    public void modifier(Forum f){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        em.getTransaction().begin();
-        em.merge(f);
-        em.getTransaction().commit();
-    }
+    public void supprimer(Forum f);
     
-    public void supprimer(Forum f){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        em.getTransaction().begin();
-        em.createQuery("DELETE FROM Forum f WHERE f.id="+f.getId()).executeUpdate();
-        em.getTransaction().commit();
-    }
+    public List<Forum> listerTous();
     
-    public List<Forum> listerTous(){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        
-        return em.createQuery("SELECT f FROM Forum f").getResultList();
-    }
-    
-    public Forum rechercherParId(long id){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        
-        return em.find(Forum.class, id);
-    }
+    public Forum rechercherParId(long id);
 }
