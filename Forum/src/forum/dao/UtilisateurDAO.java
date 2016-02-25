@@ -15,47 +15,18 @@ import javax.persistence.Persistence;
  *
  * @author admin
  */
-public class UtilisateurDAO {
+public interface UtilisateurDAO {
     
-    public void ajouter(Utilisateur u){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        em.getTransaction().begin();
-        em.persist(u);
-        em.getTransaction().commit();
-        
-    }
+    public void ajouter(Utilisateur u);
     
-    public void modifier(Utilisateur u){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        em.getTransaction().begin();
-        em.merge(u);
-        em.getTransaction().commit();
-    }
+    public void modifier(Utilisateur u);
     
-    public void supprimer(Utilisateur u){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        em.getTransaction().begin();
-        em.createQuery("DELETE FROM Utilisateur u WHERE u.id="+u.getId()).executeUpdate();
-        em.getTransaction().commit();
-    }
+    public void supprimer(Utilisateur u);
     
-    public List<Utilisateur> listerTous(){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        
-        return em.createQuery("SELECT u FROM Utilisateur u").getResultList();
-    }
+    public List<Utilisateur> listerTous();
     
-    public Utilisateur rechercherParId(long id){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        
-        return em.find(Utilisateur.class, id);
-    }
+    public Utilisateur rechercherParId(long id);
     
+    public List<Utilisateur> rechercherParLogin(String login);
     
-    public List<Utilisateur> rechercherParLogin(String login){
-        EntityManager em = Persistence.createEntityManagerFactory("ForumPU").createEntityManager();
-        
-        return em.createQuery("SELECT u FROM Utilisateur u WHERE u.login='"+ login +"'").getResultList();
-        
-    }
 }
