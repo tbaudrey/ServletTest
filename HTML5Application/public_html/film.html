@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="controleur" method="get">
+            <table>
+                <tr>
+                    <td>
+                        <label> Titre </label>
+                    </td>
+                    <td>
+                        <input type="text" name="titre"/>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label> Synopsis </label>
+                    </td>
+                    <td>
+                        <textarea name="synopsis"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Annee </label>
+                    </td>
+                    <td>
+                        <input type="number" name="annee" value="2000"/>
+                        <!--<input type="date" name="annee"/>-->
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Genre </label>
+                    </td>
+                    <td>
+                        <select name="genre">
+                            <option value="1">Animes</option>
+                            <option value="2">Fantastique</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Pays </label>
+                    </td>
+                    <td>
+                        <select name="pays">
+                            <option value="1">France</option>
+                            <option value="2">USA</option>
+                        </select>
+                    </td>    
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Realisateur </label>
+                    </td>
+                    <td>
+                        <select name="realisateur">
+                            <option value="1">truc</option>
+                            <option value="2">bidul</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Publie </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="publie"/>
+                    </td>
+                </tr>
+
+                <tr>
+<!--                    <td>
+                        
+                    </td>-->
+                    <td colspan="2">
+                        <input type="submit"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
