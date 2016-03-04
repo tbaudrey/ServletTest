@@ -9,14 +9,96 @@ and open the template in the editor.
         <title>Streaming</title>
         <link href="style/style1.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
+    <body class="menu">
+        <div id="img" style="position:absolute;">
+        <img src="minion.png" onMouseDown="pauseResume();">
+        </div>
+        <SCRIPT LANGUAGE="JavaScript">
+        var step = 1;
+        var delay = 30;
+        var height = 0;
+        var Hoffset = 0;
+        var Woffset = 0;
+        var yon = 0;
+        var xon = 0;
+        var pause = true;
+        var interval;
+        var name = navigator.appName;
+        if(name == "Mozilla Firefox") name = true;
+        else name = false;
+        var xPos = 20;
+        if(name) var yPos = document.body.clientHeight;
+        else var yPos = window.innerHeight;
+        function changePos() {
+        if(name) {
+        width = document.body.clientWidth;
+        height = document.body.clientHeight;
+        Hoffset = img.offsetHeight;
+        Woffset = img.offsetWidth;
+        img.style.left = xPos + document.body.scrollLeft;
+        img.style.top = yPos + document.body.scrollTop;
+        }
+        else {
+        height = window.innerHeight;
+        width = window.innerWidth;
+        Hoffset = document.img.clip.height;
+        Woffset = document.img.clip.width;
+        document.img.pageY = yPos + window.pageYOffset;
+        document.img.pageX = xPos + window.pageXOffset;
+        }
+        if (yon) {
+        yPos = yPos + step;
+        }
+        else {
+        yPos = yPos - step;
+        }
+        if (yPos < 0) {
+        yon = 1;
+        yPos = 0;
+        }
+        if (yPos >= (height - Hoffset)) {
+        yon = 0;
+        yPos = (height - Hoffset);
+        }
+        if (xon) {
+        xPos = xPos + step;
+        }
+        else {
+        xPos = xPos - step;
+        }
+        if (xPos < 0) {
+        xon = 1;
+        xPos = 0;
+        }
+        if (xPos >= (width - Woffset)) {
+        xon = 0;
+        xPos = (width - Woffset);
+           }
+        }
+        function start() {
+        if(name) img.visibility = "visible";
+        else document.img.visibility = "visible";
+        interval = setInterval('changePos()',delay);
+        }
+        function pauseResume() {
+        if(pause) {
+        clearInterval(interval);
+        pause = false;
+        }
+        else {
+        interval = setInterval('changePos()',delay);
+        pause = true;
+           }
+        }
+        start();
+        //  End -->
+        </script>
         <div>
             Menu : 
             <a class="titre" href="films.html"> Films</a> 
-            <a href="https://www.facebook.com/arthur.geneste.9?fref=ts"> Serie</a> 
+            <a href ="serie.html"> Serie</a> 
             <a href="index.html"> Home</a> 
         </div>
-        
         <table>
             <tr>
                 <td>Les minions</td>
@@ -24,7 +106,7 @@ and open the template in the editor.
                 <td>Donald</td>
             </tr>
             <tr>
-                <td><a target=" " href ="https://www.facebook.com/arthur.geneste.9?fref=ts"> <img src="Images/minion.jpg" ></a> </td>
+                <td><a target=" " href ="https://www.facebook.com/arthur.geneste.9?fref=ts"> <img src="Images/minion.png" ></a> </td>
                 <td><a target=" " href ="https://www.facebook.com/arthur.geneste.9?fref=ts"> <img src="Images/panda.png" ></a> </td>
                 <td><a target=" " href ="https://www.facebook.com/arthur.geneste.9?fref=ts"> <img src="Images/donald.png" ></a> </td>
             </tr>
